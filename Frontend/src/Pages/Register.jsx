@@ -27,7 +27,7 @@ function Register(props) {
         e.preventDefault();
         if (handleValidation()) {
             const { username, email, password, role } = values;
-            const { data } = await axios.post('http://localhost:5000/api/auth/register', {
+            const { data } = await axios.post('https://ticket-management-application-production.up.railway.app/api/auth/register', {
                 email,
                 username,
                 role,

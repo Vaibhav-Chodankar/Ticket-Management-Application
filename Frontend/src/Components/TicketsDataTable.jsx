@@ -19,7 +19,7 @@ function TicketDataTable(props) {
     useEffect(() => {
         const getAllMembers = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/api/member/getAllMembers');
+                const { data } = await axios.get('https://ticket-management-application-production.up.railway.app/api/member/getAllMembers');
                 setmembers(data.data || []);
             } catch (error) {
                 console.error("Error fetching members:", error);
@@ -31,7 +31,7 @@ function TicketDataTable(props) {
     useEffect(() => {
         const getAllTickets = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/api/ticket/getTicket');
+                const { data } = await axios.get('https://ticket-management-application-production.up.railway.app/api/ticket/getTicket');
                 settickets(data.data || []);
             } catch (error) {
                 console.error("Error fetching tickets:", error);
@@ -44,8 +44,8 @@ function TicketDataTable(props) {
         const confirmed = window.confirm("Are you sure you want to delete this ticket?");
         if (confirmed) {
             try {
-                await axios.delete(`http://localhost:5000/api/ticket/${ticketId}`);
-                const { data } = await axios.get('http://localhost:5000/api/ticket/getTicket');
+                await axios.delete(`https://ticket-management-application-production.up.railway.app/api/ticket/${ticketId}`);
+                const { data } = await axios.get('https://ticket-management-application-production.up.railway.app/api/ticket/getTicket');
                 settickets(data.data || []);
                 toast.success("Ticket deleted successfully!", toastOpts);
             } catch (error) {
@@ -56,8 +56,8 @@ function TicketDataTable(props) {
 
     const handleMemberChange = async (ticketId, memberId) => {
         try {
-            await axios.put(`http://localhost:5000/api/ticket/${ticketId}`, { assigned: memberId });
-            const { data } = await axios.get('http://localhost:5000/api/ticket/getTicket');
+            await axios.put(`https://ticket-management-application-production.up.railway.app/api/ticket/${ticketId}`, { assigned: memberId });
+            const { data } = await axios.get('https://ticket-management-application-production.up.railway.app/api/ticket/getTicket');
             settickets(data.data || []);
             toast.success("Member assigned successfully!", toastOpts);
         } catch (error) {

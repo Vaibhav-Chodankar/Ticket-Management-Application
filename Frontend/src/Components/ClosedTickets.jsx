@@ -8,7 +8,7 @@ function ClosedTickets(props) {
 
     useEffect(() => {
         const getClosedTickets = async () => {
-            const { data } = await axios.get('http://localhost:5000/api/ticket/getClosedTicket')
+            const { data } = await axios.get('https://ticket-management-application-production.up.railway.app/api/ticket/getClosedTicket')
             setClosedTickets(data.data || []);
         }
         getClosedTickets();

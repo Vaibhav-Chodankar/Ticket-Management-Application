@@ -9,7 +9,7 @@ const TicketStatus = ({ currentUser }) => {
 
     useEffect(() => {
         const getTickets = async () => {
-            const { data } = await axios.get(`http://localhost:5000/api/ticket/getTicket/${currentUser._id}`);
+            const { data } = await axios.get(`https://ticket-management-application-production.up.railway.app/api/ticket/getTicket/${currentUser._id}`);
             setTickets(data.data);
             console.log(data.data);
         }

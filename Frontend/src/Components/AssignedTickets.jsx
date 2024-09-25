@@ -23,7 +23,7 @@ const AssignedTickets = ({ currentUser }) => {
 
     useEffect(() => {
         const getAssignedTickets = async () => {
-            const { data } = await axios.get(`http://localhost:5000/api/member/getAssignedTicket/${currentUser._id}`);
+            const { data } = await axios.get(`https://ticket-management-application-production.up.railway.app/api/member/getAssignedTicket/${currentUser._id}`);
             setAssignedTickets(data.data || []);
         };
         getAssignedTickets();
@@ -42,8 +42,8 @@ const AssignedTickets = ({ currentUser }) => {
         const confirmed = window.confirm("Are you sure you want to delete this ticket?");
         if (confirmed) {
             try {
-                await axios.delete(`http://localhost:5000/api/ticket/${ticketId}`);
-                const { data } = await axios.get(`http://localhost:5000/api/member/getAssignedTicket/${currentUser._id}`);
+                await axios.delete(`https://ticket-management-application-production.up.railway.app/api/ticket/${ticketId}`);
+                const { data } = await axios.get(`https://ticket-management-application-production.up.railway.app/api/member/getAssignedTicket/${currentUser._id}`);
                 setAssignedTickets(data.data || []);
                 toast.success("Ticket deleted successfully!", toastOpts);
             } catch (error) {
@@ -54,8 +54,8 @@ const AssignedTickets = ({ currentUser }) => {
 
     const handleStatusChange = async () => {
         try {
-            await axios.put(`http://localhost:5000/api/ticket/${selectedTicket._id}`, { status, timeRequired });
-            const { data } = await axios.get(`http://localhost:5000/api/member/getAssignedTicket/${currentUser._id}`);
+            await axios.put(`https://ticket-management-application-production.up.railway.app/api/ticket/${selectedTicket._id}`, { status, timeRequired });
+            const { data } = await axios.get(`https://ticket-management-application-production.up.railway.app/api/member/getAssignedTicket/${currentUser._id}`);
             setAssignedTickets(data.data || []);
             toast.success("Ticket updated successfully!", toastOpts);
             setTimeRequired('');

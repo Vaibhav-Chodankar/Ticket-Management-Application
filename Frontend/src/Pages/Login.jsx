@@ -24,7 +24,7 @@ function Login(props) {
         e.preventDefault();
         if (handleValidation()) {
             const { username, password } = values;
-            const { data } = await axios.post('http://localhost:5000/api/auth/login', {
+            const { data } = await axios.post('https://ticket-management-application-production.up.railway.app/api/auth/login', {
                 username,
                 password
             })

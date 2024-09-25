@@ -28,7 +28,7 @@ const TicketCreation = ({ currentUser }) => {
         e.preventDefault();
         if (formValidation()) {
             const { name, email, companyName, department, message } = values;
-            const { data } = await axios.post('http://localhost:5000/api/ticket/addTicket', {
+            const { data } = await axios.post('https://ticket-management-application-production.up.railway.app/api/ticket/addTicket', {
                 name,
                 email,
                 companyName,
